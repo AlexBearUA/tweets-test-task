@@ -1,5 +1,7 @@
+const { UsersList } = require('components/UsersList/UsersList');
+
 const Tweets = () => {
-  return <div>Here will be tweets list</div>;
+  return <UsersList />;
 };
 
 export default Tweets;
