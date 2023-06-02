@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktweets_test_task=self.webpackChunktweets_test_task||[]).push([[522],{522:function(e,t,s){s.r(t);var n=s(184);t.default=function(){return(0,n.jsx)("div",{children:"Here will be tweets list"})}}}]);
+//# sourceMappingURL=522.29e7292f.chunk.js.map

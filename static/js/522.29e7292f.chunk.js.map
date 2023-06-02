@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/522.29e7292f.chunk.js","mappings":"4IAIA,UAJe,WACb,OAAO,qDACR,C","sources":["pages/Tweets.js"],"sourcesContent":["const Tweets = () => {\n  return <div>Here will be tweets list</div>;\n};\n\nexport default Tweets;\n"],"names":[],"sourceRoot":""}
