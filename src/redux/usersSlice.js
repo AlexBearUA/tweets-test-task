@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers } from './operations';
+import { editUser, fetchUsers } from './operations';
 
 import {
   handlePending,
   handleRejected,
   handleFulfilled,
   handleFulfilledFetch,
-  //   handleFulfilledEdit,
+  handleFulfilledEdit,
 } from '../services/response-handlers.js';
 
 const usersSlice = createSlice({
@@ -18,7 +18,8 @@ const usersSlice = createSlice({
     builder
       .addCase(fetchUsers.fulfilled, handleFulfilledFetch, handleFulfilled)
       .addCase(fetchUsers.pending, handlePending)
-      .addCase(fetchUsers.rejected, handleRejected);
+      .addCase(fetchUsers.rejected, handleRejected)
+      .addCase(editUser.fulfilled, handleFulfilledEdit, handleFulfilled);
   },
 });
 

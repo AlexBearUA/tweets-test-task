@@ -16,6 +16,6 @@ export const handleFulfilledFetch = (state, action) => {
 };
 
 export const handleFulfilledEdit = (state, action) => {
-  const index = state.contacts.findIndex(user => user.id === action.payload.id);
+  const index = state.users.findIndex(user => user.id === action.payload.id);
   state.users.splice(index, 1, action.payload);
 };

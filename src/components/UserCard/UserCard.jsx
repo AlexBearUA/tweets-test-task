@@ -1,4 +1,6 @@
-// import { useUpdateUserMutation } from 'redux/usersAPI';
+import { useDispatch } from 'react-redux';
+import { editUser } from 'redux/operations';
+
 import css from './UserCard.module.scss';
 
 export const UserCard = ({
@@ -9,20 +11,21 @@ export const UserCard = ({
   following,
   id,
 }) => {
-  // const [updateUser] = useUpdateUserMutation();
+  const dispatch = useDispatch();
 
   const changeFollowingStatus = () => {
-    // const updatedUser = {
-    //   id,
-    //   user,
-    //   tweets,
-    //   followres,
-    //   avatar,
-    //   following: !following,
-    // };
-    // console.log(updatedUser);
-    // console.log(updateUser(updatedUser));
-    // updateUser({ id, user, tweets, followres, avatar, following: !following });
+    const followingStatus = !following;
+
+    dispatch(
+      editUser({
+        user,
+        tweets,
+        followres,
+        avatar,
+        followingStatus,
+        id,
+      })
+    );
   };
 
   return (
@@ -36,7 +39,13 @@ export const UserCard = ({
       <p className={css.CardText}>{followres} followers</p>
 
       {following ? (
-        <button className={css.FollowingBtn}>Following</button>
+        <button
+          onClick={changeFollowingStatus}
+          type="button"
+          className={css.FollowingBtn}
+        >
+          Following
+        </button>
       ) : (
         <button
           onClick={changeFollowingStatus}
