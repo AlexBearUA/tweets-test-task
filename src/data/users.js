@@ -1,4 +1,4 @@
-export const users = [
+export const allUsers = [
   {
     user: 'Elon Mask',
     tweets: 777,
