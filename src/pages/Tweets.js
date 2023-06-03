@@ -29,6 +29,7 @@ const Tweets = () => {
         >
           Previous
         </button>
+        <span className={css.CurrentPage}>{page}</span>
         <button
           className={css.PaginationBtn}
           type="button"
