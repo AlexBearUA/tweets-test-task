@@ -4,11 +4,11 @@ import { allUsers } from '../../data/users';
 import css from './UsersList.module.scss';
 
 export const UsersList = () => {
-  const [next, setNext] = useState(3);
+  const [nextUsers, setNextUsers] = useState(3);
   const [users, setUsers] = useState([]);
 
   const handleLoadMore = () => {
-    setNext(next + 3);
+    setNextUsers(nextUsers + 3);
   };
 
   useEffect(() => {
@@ -18,19 +18,21 @@ export const UsersList = () => {
   return (
     <>
       <ul className={css.UsersList}>
-        {users.slice(0, next).map(({ user, tweets, followres, avatar, id }) => (
-          <li key={id}>
-            <UserCard
-              user={user}
-              tweets={tweets}
-              followres={followres}
-              avatar={avatar}
-              id={id}
-            />
-          </li>
-        ))}
+        {users
+          .slice(0, nextUsers)
+          .map(({ user, tweets, followres, avatar, id }) => (
+            <li key={id}>
+              <UserCard
+                user={user}
+                tweets={tweets}
+                followres={followres}
+                avatar={avatar}
+                id={id}
+              />
+            </li>
+          ))}
       </ul>
-      {next < users.length && (
+      {nextUsers < users.length && (
         <button onClick={handleLoadMore} className={css.LoadMoreBtn}>
           Load more
         </button>
