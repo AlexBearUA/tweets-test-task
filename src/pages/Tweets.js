@@ -1,20 +1,12 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from 'redux/operations';
+import { useState } from 'react';
 import { UsersList } from '../components/UsersList/UsersList';
-import { selectUsers } from '../redux/selectors';
-
+import { useGetUsersQuery } from 'redux/usersAPI';
 import css from './Tweets.module.scss';
 
 const Tweets = () => {
   const [page, setPage] = useState(1);
 
-  const dispatch = useDispatch();
-  const users = useSelector(selectUsers);
-
-  useEffect(() => {
-    dispatch(fetchUsers(page));
-  }, [dispatch, page]);
+  const { data: users } = useGetUsersQuery(page);
 
   return (
     <>

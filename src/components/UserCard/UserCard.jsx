@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-import { editUser } from 'redux/operations';
+import { useUpdateUserMutation } from 'redux/usersAPI';
 
 import css from './UserCard.module.scss';
 
@@ -11,7 +10,7 @@ export const UserCard = ({
   following,
   id,
 }) => {
-  const dispatch = useDispatch();
+  const [updateUser] = useUpdateUserMutation();
 
   const changeFollowingStatus = () => {
     const followingStatus = !following;
@@ -19,16 +18,15 @@ export const UserCard = ({
     followingStatus
       ? (updatedFollowersAmount += 1)
       : (updatedFollowersAmount -= 1);
-    dispatch(
-      editUser({
-        user,
-        tweets,
-        updatedFollowersAmount,
-        avatar,
-        followingStatus,
-        id,
-      })
-    );
+
+    updateUser({
+      user,
+      tweets,
+      updatedFollowersAmount,
+      avatar,
+      followingStatus,
+      id,
+    });
   };
 
   return (
