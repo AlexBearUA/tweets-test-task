@@ -3,34 +3,22 @@ import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import { UsersList } from '../components/UsersList/UsersList';
 import { useGetUsersQuery } from 'redux/usersAPI';
+import { getFilteredUsers } from 'helpers/getFilteredUsers';
 import css from './Tweets.module.scss';
 
 const Tweets = () => {
   const [page, setPage] = useState(1);
+  const [filteredUsers, setFilteredUsers] = useState([]);
   const [selectedOption, setSelectedOption] = useState({
     label: 'All',
     value: 'all',
   });
-  const [filteredUsers, setFilteredUsers] = useState([]);
-
   const { data: users } = useGetUsersQuery(page);
-
   const options = [
     { value: 'all', label: 'All' },
     { value: 'follow', label: 'Follow' },
     { value: 'followings', label: 'Followings' },
   ];
-
-  const getFilteredUsers = (users, filter) => {
-    switch (filter.value) {
-      case 'followings':
-        return users.filter(user => user.following);
-      case 'follow':
-        return users.filter(user => !user.following);
-      default:
-        return users;
-    }
-  };
 
   useEffect(() => {
     setFilteredUsers(getFilteredUsers(users, selectedOption));
