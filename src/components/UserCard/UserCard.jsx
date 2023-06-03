@@ -15,12 +15,15 @@ export const UserCard = ({
 
   const changeFollowingStatus = () => {
     const followingStatus = !following;
-
+    let updatedFollowersAmount = followres;
+    followingStatus
+      ? (updatedFollowersAmount += 1)
+      : (updatedFollowersAmount -= 1);
     dispatch(
       editUser({
         user,
         tweets,
-        followres,
+        updatedFollowersAmount,
         avatar,
         followingStatus,
         id,

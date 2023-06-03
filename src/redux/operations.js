@@ -20,14 +20,14 @@ export const fetchUsers = createAsyncThunk(
 export const editUser = createAsyncThunk(
   'users/editUser',
   async (
-    { user, tweets, followres, avatar, followingStatus, id },
+    { user, tweets, updatedFollowersAmount, avatar, followingStatus, id },
     thunkAPI
   ) => {
     try {
       const response = await axios.put(`/users/${id}`, {
         user,
         tweets,
-        followres,
+        followres: updatedFollowersAmount,
         avatar,
         id,
         following: followingStatus,

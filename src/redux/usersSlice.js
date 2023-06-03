@@ -14,7 +14,6 @@ const usersSlice = createSlice({
   initialState: { users: [], isLoading: false, error: null },
 
   extraReducers: builder => {
-    // const { PENDING, FULFILLED, REJECTED } = STATUS;
     builder
       .addCase(fetchUsers.fulfilled, handleFulfilledFetch, handleFulfilled)
       .addCase(fetchUsers.pending, handlePending)
