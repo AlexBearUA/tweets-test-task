@@ -15,18 +15,14 @@ export const UserCard = ({
 
   const changeFollowingStatus = () => {
     const followingStatus = !following;
-    let updatedFollowersAmount = followres;
-    followingStatus
-      ? (updatedFollowersAmount += 1)
-      : (updatedFollowersAmount -= 1);
+    const updatedFollowersAmount = followingStatus
+      ? (followres += 1)
+      : (followres -= 1);
 
     updateUser({
-      user,
-      tweets,
-      updatedFollowersAmount,
-      avatar,
-      followingStatus,
       id,
+      updatedFollowersAmount,
+      followingStatus,
     });
   };
 

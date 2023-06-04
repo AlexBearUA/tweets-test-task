@@ -13,22 +13,12 @@ export const usersAPI = createApi({
     }),
 
     updateUser: builder.mutation({
-      query: ({
-        user,
-        tweets,
-        updatedFollowersAmount,
-        avatar,
-        followingStatus,
-        id,
-      }) => ({
+      query: ({ id, updatedFollowersAmount, followingStatus }) => ({
         url: `users/${id}`,
         method: 'PUT',
         body: {
           id,
-          user,
-          tweets,
           followres: updatedFollowersAmount,
-          avatar,
           following: followingStatus,
         },
       }),
