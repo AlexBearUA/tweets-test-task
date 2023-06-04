@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktweets_test_task=self.webpackChunktweets_test_task||[]).push([[683],{4683:function(e,t,s){s.r(t),s.d(t,{default:function(){return _}});var a="Home_HomePage__GoO-P",n="Home_HomeTitle__Ma9QG",o="Home_HomeText__t9IYD",l=s(184),_=function(){return(0,l.jsxs)("div",{className:a,children:[(0,l.jsx)("h1",{className:n,children:"follow famous people"}),(0,l.jsx)("p",{className:o,children:"and the white rabbit ; )"})]})}}}]);
+//# sourceMappingURL=683.9f2e5564.chunk.js.map
