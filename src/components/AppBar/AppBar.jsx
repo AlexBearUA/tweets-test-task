@@ -3,7 +3,7 @@ import css from './AppBar.module.scss';
 
 export const AppBar = () => {
   return (
-    <nav className={css.Nav}>
+    <nav className={css.nav}>
       <NavLink className="link" to="/">
         Home
       </NavLink>

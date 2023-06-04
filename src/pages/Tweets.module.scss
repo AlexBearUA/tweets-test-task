@@ -1,8 +1,8 @@
-.BtnWraper {
+.btnWraper {
   display: flex;
 }
 
-.PaginationBtn {
+.paginationBtn {
   cursor: pointer;
   display: block;
   width: 196px;
@@ -27,7 +27,7 @@
   }
 }
 
-.CurrentPage {
+.currentPage {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,12 +41,12 @@
   border-radius: 50%;
 }
 
-.TweetsHeader {
+.tweetsHeader {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
-.BackLink {
+.backLink {
   display: inline-block;
   margin-top: 25px;
   text-decoration: none;

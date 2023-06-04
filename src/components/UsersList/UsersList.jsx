@@ -4,7 +4,7 @@ import css from './UsersList.module.scss';
 
 export const UsersList = ({ users }) => {
   return (
-    <ul className={css.UsersList}>
+    <ul className={css.usersList}>
       {users &&
         users.map(({ user, tweets, followres, avatar, id, following }) => (
           <li key={id}>

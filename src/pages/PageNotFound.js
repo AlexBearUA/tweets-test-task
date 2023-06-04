@@ -3,9 +3,9 @@ import css from './PageNotFound.module.scss';
 
 const PageNotFound = () => {
   return (
-    <div className={css.NotFound}>
-      <p className={css.NotFoundText}>Sorry, page not found</p>
-      <Link className={css.BackLink} to="/">
+    <div className={css.notFound}>
+      <p className={css.notFoundText}>Sorry, page not found</p>
+      <Link className={css.backLink} to="/">
         Back to Home
       </Link>
     </div>

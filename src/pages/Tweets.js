@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import { UsersList } from '../components/UsersList/UsersList';
-import { useGetUsersQuery } from 'redux/usersAPI';
-import { getFilteredUsers } from 'helpers/getFilteredUsers';
 import { Loader } from 'components/Loaders/Loader';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
+import { useGetUsersQuery } from 'redux/usersAPI';
+import { getFilteredUsers } from 'helpers/getFilteredUsers';
 import css from './Tweets.module.scss';
 
 const Tweets = () => {
@@ -24,7 +24,7 @@ const Tweets = () => {
 
   useEffect(() => {
     setFilteredUsers(getFilteredUsers(users, selectedOption));
-  }, [selectedOption, users]);
+  }, [users, selectedOption]);
 
   return (
     <>
@@ -32,14 +32,14 @@ const Tweets = () => {
         <ErrorMessage />
       ) : (
         <>
-          <div className={css.TweetsHeader}>
+          <div className={css.tweetsHeader}>
             <Select
               className={css.select}
               defaultValue={selectedOption}
               onChange={setSelectedOption}
               options={options}
             />
-            <Link className={css.BackLink} to="/">
+            <Link className={css.backLink} to="/">
               Back to Home
             </Link>
           </div>
@@ -48,18 +48,18 @@ const Tweets = () => {
 
           <UsersList users={filteredUsers} />
 
-          <div className={css.BtnWraper}>
+          <div className={css.btnWraper}>
             <button
-              className={css.PaginationBtn}
+              className={css.paginationBtn}
               type="button"
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
             >
               Previous
             </button>
-            <span className={css.CurrentPage}>{page}</span>
+            <span className={css.currentPage}>{page}</span>
             <button
-              className={css.PaginationBtn}
+              className={css.paginationBtn}
               type="button"
               disabled={page === 3}
               onClick={() => setPage(page + 1)}

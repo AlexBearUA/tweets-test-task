@@ -7,7 +7,7 @@ import css from './Layout.module.scss';
 
 export const Layout = () => {
   return (
-    <div className={css.Container}>
+    <div className={css.container}>
       <AppBar />
       <Suspense fallback={<Loader />}>
         <Outlet />
