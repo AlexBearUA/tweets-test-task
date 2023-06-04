@@ -89,6 +89,9 @@
   &:hover {
     background-color: #5cd3a8;
   }
+  &:disabled {
+    background-color: #aa98bd;
+  }
 }
 
 .FollowingBtn {
@@ -110,5 +113,8 @@
   border: none;
   &:hover {
     background-color: #ebd8ff;
+  }
+  &:disabled {
+    background-color: #aa98bd;
   }
 }

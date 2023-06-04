@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 import { useUpdateUserMutation } from 'redux/usersAPI';
 import { convertNumber } from 'helpers/convertNumber';
 
@@ -11,7 +13,8 @@ export const UserCard = ({
   following,
   id,
 }) => {
-  const [updateUser] = useUpdateUserMutation();
+  const [updateUser, { isLoading, isSuccess, isError }] =
+    useUpdateUserMutation();
 
   const changeFollowingStatus = () => {
     const followingStatus = !following;
@@ -26,6 +29,14 @@ export const UserCard = ({
     });
   };
 
+  useEffect(() => {
+    isSuccess && !following && toast.success(`You are following ${user} now`);
+    isSuccess && following && toast.success(`You stoped following ${user}`);
+    isError && !following && toast.error(`Ooops, something going wrong...`);
+    isError && following && toast.error(`Ooops, something going wrong...`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess, isError]);
+
   return (
     <div className={css.UserCard}>
       <p className={css.UserName}>{user}</p>
@@ -39,18 +50,20 @@ export const UserCard = ({
       {following ? (
         <button
           onClick={changeFollowingStatus}
+          disabled={isLoading}
           type="button"
           className={css.FollowingBtn}
         >
-          Following
+          {isLoading ? <>Changing status...</> : <>Following</>}
         </button>
       ) : (
         <button
           onClick={changeFollowingStatus}
+          disabled={isLoading}
           className={css.FollowBtn}
           type="button"
         >
-          Follow
+          {isLoading ? <>Changing status...</> : <>Follow</>}
         </button>
       )}
     </div>
