@@ -10,12 +10,12 @@ const Tweets = () => {
   const [page, setPage] = useState(1);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [selectedOption, setSelectedOption] = useState({
-    label: 'All',
+    label: 'Show all',
     value: 'all',
   });
   const { data: users } = useGetUsersQuery(page);
   const options = [
-    { value: 'all', label: 'All' },
+    { value: 'all', label: 'Show all' },
     { value: 'follow', label: 'Follow' },
     { value: 'followings', label: 'Followings' },
   ];
