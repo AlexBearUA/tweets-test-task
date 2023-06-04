@@ -34,6 +34,7 @@ const Tweets = () => {
         <>
           <div className={css.TweetsHeader}>
             <Select
+              className={css.select}
               defaultValue={selectedOption}
               onChange={setSelectedOption}
               options={options}
